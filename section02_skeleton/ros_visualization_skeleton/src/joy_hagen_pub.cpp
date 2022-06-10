@@ -4,7 +4,7 @@
 
 #include <std_msgs/Int32.h>
 #include <geometry_msgs/Vector3.h>
-
+#include <math.h>
 #include <ros_visualization_skeleton/SetSpeed.h>
 
 int main( int argc, char **argv )
@@ -23,6 +23,15 @@ int main( int argc, char **argv )
   int i = 0;
   ros::Rate rate( 1 );
   while( ros::ok() ) {
+
+    msg_imu_acceleration.x = cos(i);
+    msg_imu_acceleration.y = sin(i);
+    msg_imu_acceleration.z = sin(i*3);
+    msg_temperature.data = sin(i*2);
+    
+    pub_imu.publish(msg_imu_acceleration);
+    pub_temp.publish(msg_temperature);
+
     // TODO set temperature value, i.e., you can define it as you wish 
     // TODO set acceleration values: x, y, and z
     // TODO set desired speed 
