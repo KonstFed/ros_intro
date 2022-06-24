@@ -27,7 +27,7 @@ int main( int argc, char** argv )
   marker.name = "marker";
   marker.description = "2-DOF Control";
 
-  // Box marker
+  // Box marker-e
   visualization_msgs::Marker box_marker;
   box_marker.type = visualization_msgs::Marker::CUBE;
   box_marker.scale.x = 0.5;
@@ -42,7 +42,7 @@ int main( int argc, char** argv )
   visualization_msgs::InteractiveMarkerControl box_control;
   box_control.always_visible = true;
   box_control.markers.push_back(box_marker);
-
+`
   // Controls to move the box
   visualization_msgs::InteractiveMarkerControl move_x_control, rotate_z_control;
   move_x_control.name = "move_x";

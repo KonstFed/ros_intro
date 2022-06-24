@@ -2,5 +2,6 @@
 <launch>
   <node pkg="ros_visualization_skeleton" type="joy_hagen_basic_control" name="joy_hagen_basic_control" output="screen"/>
   <node pkg="rviz" type="rviz" name="rviz" />
+  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="1 0 0 0 0 0 1 link1_parent link1 100" />
 </launch>
 

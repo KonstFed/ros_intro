@@ -27,6 +27,7 @@ int main( int argc, char **argv )
       ROS_ERROR_STREAM( "Failed to capture frame!" );
       ros::shutdown();
     }
+  
     frame->header.stamp = ros::Time::now();
     pub_image.publish( frame->toImageMsg() );
     cv::waitKey( 3 );

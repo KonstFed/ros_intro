@@ -18,10 +18,12 @@ void callback_accel(const geometry_msgs::Vector3::ConstPtr& msg){
 
 bool callback_speed(ros_visualization_skeleton::SetSpeed::Request  &req, ros_visualization_skeleton::SetSpeed::Response &res){
   ROS_INFO_STREAM("Speed service request: desired speed = " << req.desired_speed);
-  // TODO set res.new_speed 0.6 times desired_speed 
-  // TODO set res.previous_speed as previous_speed
-  res.stalled        = new_speed < 0.1;
   previous_speed = new_speed;
+  new_speed = 0.6*req.desired_speed;
+  
+  res.new_speed = new_speed;
+  res.previous_speed = previous_speed;
+  res.stalled  = new_speed < 0.1;
   return true;
 }
 
